@@ -67,6 +67,6 @@ Jose Polzoni also has something done in a personal project. You can find this in
 
 ## Documentation
 
-Game Design Document: https://goo.gl/w9hYr1
+&emsp; &emsp; <a href="https://goo.gl/w9hYr1" target="_blank">||  Game Design Document  ||</a>
 
 ---------END-----------
