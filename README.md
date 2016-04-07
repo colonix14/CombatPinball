@@ -63,4 +63,10 @@ A classic pinball clone, but with a little changes. a pinball is a mechanical ga
 
 Jose Polzoni also has something done in a personal project. You can find this in the following URL: https://drive.google.com/file/d/0BxzOCTN8nwoHNWNJTVFsZmxUYjA/view?usp=sharing
 
+---
+
+## Documentation
+
+Game Design Document: https://goo.gl/w9hYr1
+
 ---------END-----------
