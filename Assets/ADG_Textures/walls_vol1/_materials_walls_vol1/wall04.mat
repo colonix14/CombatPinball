@@ -20,7 +20,7 @@ Material:
           name: _MainTex
         second:
           m_Texture: {fileID: 2800000, guid: 2a681bf3b6783434db82bcad6167594b, type: 3}
-          m_Scale: {x: 1, y: 1}
+          m_Scale: {x: 0.5, y: 0.2}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -55,7 +55,7 @@ Material:
           name: _EmissionMap
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
+          m_Scale: {x: 0.5, y: 0.2}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -158,6 +158,18 @@ Material:
         second: 0
       data:
         first:
+          name: _ShadeRange
+        second: 0.02
+      data:
+        first:
+          name: _ShadingStrength
+        second: 0
+      data:
+        first:
+          name: _RMS
+        second: 0.20974624
+      data:
+        first:
           name: _distance_start
         second: 10
       data:
@@ -202,20 +214,8 @@ Material:
         second: 8
       data:
         first:
-          name: _ShadeRange
-        second: 0.02
-      data:
-        first:
-          name: _ShadingStrength
-        second: 0
-      data:
-        first:
           name: _SHADOW_SMOOTH_STEPS
         second: 4
-      data:
-        first:
-          name: _RMS
-        second: 0.20974624
       data:
         first:
           name: _SidewallTextureOffset
