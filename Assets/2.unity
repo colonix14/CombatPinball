@@ -148,10 +148,10 @@ Canvas:
   m_GameObject: {fileID: 485220422}
   m_Enabled: 1
   serializedVersion: 2
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -548,4 +548,3 @@ MonoBehaviour:
   image: {fileID: 1085735726}
   text: {fileID: 1418434296}
   anim: {fileID: 1838202988}
-  testimage: {fileID: 21300000, guid: 6ec07d938d2518845a635a31d83670eb, type: 3}

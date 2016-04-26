@@ -27,18 +27,12 @@ public class letterByLetter : MonoBehaviour {
 	void Update () {
 		//TEST
 		if(Input.GetKeyDown(KeyCode.UpArrow)){
-			anim.SetBool ("isActive", true);
-			if (!isWriting) {
 				SetDialog (0,0);
-			}
-		}
-		if(Input.GetKeyDown(KeyCode.DownArrow)){
-			anim.SetBool ("isActive", false);
-			text.gameObject.SetActive(false);
 		}
 	}
 
 	public void SetDialog(int imageNumber, int textNumber){
+		anim.SetBool ("isActive", true);
 		SetImage (imageNumber);
 		SetText (textNumber);
 	}
@@ -49,6 +43,12 @@ public class letterByLetter : MonoBehaviour {
 
 	protected void SetText(int number){
 		StartCoroutine( AnimateText(AllDialogsLines[number]) );	
+	}
+
+	protected void HideDialog(){
+		anim.SetBool ("isActive", false);
+		text.text = "";
+		isWriting = false;
 	}
 
 	IEnumerator AnimateText(string strComplete){
@@ -65,6 +65,9 @@ public class letterByLetter : MonoBehaviour {
 			text.text = str;
 			yield return new WaitForSeconds(0.1F);
 		}
-		isWriting = false;
+		yield return new WaitForSeconds(1F);
+		HideDialog ();
+
+		// falta multiples msg.
 	}
 }
