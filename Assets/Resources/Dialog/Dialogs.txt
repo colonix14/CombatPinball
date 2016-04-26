@@ -1,0 +1,4 @@
+1este es el primer dialogo de prueba
+2este es el segundo dialogo de prueba
+3otro dialogo de prueba
+4el ultimo dialogo de prueba
