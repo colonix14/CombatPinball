@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class letterByLetter : MonoBehaviour {
+public class Dialog : MonoBehaviour {
 	
 	public Image image;
 	public Text text;
@@ -11,15 +13,19 @@ public class letterByLetter : MonoBehaviour {
 	protected TextAsset[] Alltexts;
 	protected string[] AllDialogsLines;
 
+	List<int> ImageList = new List<int>();
+	List<int> TextList = new List<int>();
+
 	bool isWriting = false;
 
 	void Start(){
 		Allfaces = Resources.LoadAll<Sprite>("Faces");
 		Alltexts = Resources.LoadAll<TextAsset>("Dialog");
 		AllDialogsLines = Alltexts[0].text.Split("\n"[0]);
-
-		text.gameObject.SetActive(false);
-		anim.SetBool ("isActive", false);
+		SetDialog (0, 0);
+		SetDialog (1, 1);
+		SetDialog (0, 0);
+		SetDialog (1, 1);
 	}
 
 
@@ -29,35 +35,30 @@ public class letterByLetter : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.UpArrow)){
 				SetDialog (0,0);
 		}
+		Debug.Log (ImageList.Count);
 	}
 
 	public void SetDialog(int imageNumber, int textNumber){
 		anim.SetBool ("isActive", true);
-		SetImage (imageNumber);
-		SetText (textNumber);
-	}
-
-	protected void SetImage(int number){
-		image.sprite = Allfaces[number];
-	}
-
-	protected void SetText(int number){
-		StartCoroutine( AnimateText(AllDialogsLines[number]) );	
+		ImageList.Add (imageNumber);
+		TextList.Add (textNumber);
+		StartCoroutine (AnimateDialog ());
 	}
 
 	protected void HideDialog(){
 		anim.SetBool ("isActive", false);
-		text.text = "";
+		//text.text = "";
 		isWriting = false;
 	}
 
-	IEnumerator AnimateText(string strComplete){
+	IEnumerator AnimateDialog(){
 		string str;
 		while (isWriting) {
 			yield return new WaitForSeconds(0.01F);
 		}
 		isWriting = true;
-		text.gameObject.SetActive(true);
+		string strComplete = AllDialogsLines[TextList[0]];
+		image.sprite = Allfaces [ImageList[0]];
 		int i = 0;
 		str = "";
 		while( i < strComplete.Length ){
@@ -65,9 +66,12 @@ public class letterByLetter : MonoBehaviour {
 			text.text = str;
 			yield return new WaitForSeconds(0.1F);
 		}
-		yield return new WaitForSeconds(1F);
-		HideDialog ();
-
-		// falta multiples msg.
+		isWriting = false;
+		ImageList.RemoveAt (0);
+		TextList.RemoveAt (0);
+		yield return new WaitForSeconds(0.5F);
+		if (ImageList.Count<1) {
+			HideDialog ();
+		}
 	}
 }
