@@ -35,7 +35,6 @@ public class Dialog : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.UpArrow)){
 				SetDialog (0,0);
 		}
-		Debug.Log (ImageList.Count);
 	}
 
 	public void SetDialog(int imageNumber, int textNumber){
